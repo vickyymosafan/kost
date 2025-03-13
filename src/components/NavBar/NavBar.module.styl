@@ -1,0 +1,314 @@
+// src/components/NavBar/NavBar.module.styl
+
+// Dark theme colors
+darkBg = #121212
+darkBgLight = #1e1e1e
+darkText = #ffffff
+darkTextMuted = rgba(255, 255, 255, 0.7)
+accentColor = #6366f1 // Indigo
+accentHover = #4f46e5
+darkSurface = #242424
+darkBorder = rgba(255, 255, 255, 0.1)
+darkShadow = rgba(0, 0, 0, 0.5)
+
+// Breakpoints
+smallMobile = 375px
+mobile = 480px
+tablet = 768px
+laptop = 1024px
+desktop = 1280px
+
+.navbar
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  width: 100%
+  z-index: 1000
+  background-color: rgba(18, 18, 18, 0.8)
+  backdrop-filter: blur(10px)
+  transition: transform 0.4s ease, background-color 0.3s ease, box-shadow 0.3s ease
+  transform: translateY(0)
+  will-change: transform
+  
+  &.scrolled
+    background: darkBg
+    box-shadow: 0 4px 20px darkShadow
+    
+  &.hidden
+    transform: translateY(-100%)
+    pointer-events: none
+
+.container
+  width: 92%
+  max-width: 1400px
+  margin: 0 auto
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 1rem 0
+  
+  @media (min-width: tablet)
+    padding: 1.25rem 0
+    width: 90%
+  
+  .scrolled &
+    padding: 0.75rem 0
+    
+    @media (min-width: tablet)
+      padding: 1rem 0
+
+.logo
+  font-size: 1.5rem
+  font-weight: 800
+  color: darkText
+  transition: color 0.3s ease
+  text-decoration: none
+  display: flex
+  align-items: center
+  gap: 0.5rem
+  
+  @media (min-width: tablet)
+    font-size: 1.75rem
+  
+  &:hover
+    color: accentColor
+
+.navLinks
+  display: none
+  
+  @media (min-width: tablet)
+    display: flex
+    gap: 1.5rem
+  
+  @media (min-width: laptop)
+    gap: 2.5rem
+
+.navLink
+  color: darkTextMuted
+  font-weight: 500
+  text-decoration: none
+  position: relative
+  transition: all 0.3s ease
+  padding: 0.5rem 0
+  font-size: 0.9rem
+  
+  @media (min-width: laptop)
+    font-size: 1rem
+  
+  &:after
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 0
+    height: 2px
+    background: accentColor
+    transition: width 0.3s ease
+  
+  &:hover, &.active
+    color: darkText
+    
+    &:after
+      width: 100%
+
+.navActions
+  display: flex
+  align-items: center
+  gap: 0.75rem
+  
+  @media (min-width: tablet)
+    gap: 1rem
+  
+  @media (min-width: laptop)
+    gap: 1.25rem
+
+.iconButton
+  background: rgba(255, 255, 255, 0.05)
+  border: none
+  color: darkTextMuted
+  font-size: 1.1rem
+  cursor: pointer
+  position: relative
+  transition: all 0.3s ease
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 2.25rem
+  height: 2.25rem
+  border-radius: 50%
+  
+  @media (min-width: tablet)
+    width: 2.5rem
+    height: 2.5rem
+    font-size: 1.2rem
+  
+  @media (min-width: laptop)
+    width: 2.75rem
+    height: 2.75rem
+    font-size: 1.25rem
+  
+  &:hover
+    background: rgba(255, 255, 255, 0.1)
+    color: darkText
+    transform: translateY(-2px)
+  
+  &:active
+    transform: translateY(0)
+
+.badge
+  position: absolute
+  top: -5px
+  right: -5px
+  background: accentColor
+  color: white
+  font-size: 0.7rem
+  font-weight: 600
+  width: 1.1rem
+  height: 1.1rem
+  border-radius: 50%
+  display: flex
+  align-items: center
+  justify-content: center
+  
+  @media (min-width: tablet)
+    font-size: 0.75rem
+    width: 1.25rem
+    height: 1.25rem
+
+.authButton
+  display: none
+  
+  @media (min-width: tablet)
+    display: flex
+    align-items: center
+    gap: 0.5rem
+    background: accentColor
+    color: white
+    border: none
+    border-radius: 0.5rem
+    padding: 0.5rem 1rem
+    font-size: 0.9rem
+    font-weight: 600
+    cursor: pointer
+    transition: all 0.3s ease
+    text-decoration: none
+  
+  @media (min-width: laptop)
+    padding: 0.625rem 1.25rem
+    font-size: 1rem
+  
+  &:hover
+    background: accentHover
+    transform: translateY(-2px)
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3)
+  
+  &:active
+    transform: translateY(0)
+    box-shadow: none
+
+.mobileMenuButton
+  background: rgba(255, 255, 255, 0.05)
+  border: none
+  color: darkTextMuted
+  font-size: 1.25rem
+  cursor: pointer
+  width: 2.25rem
+  height: 2.25rem
+  border-radius: 0.5rem
+  display: flex
+  align-items: center
+  justify-content: center
+  
+  @media (min-width: tablet)
+    width: 2.5rem
+    height: 2.5rem
+    font-size: 1.4rem
+  
+  @media (min-width: tablet)
+    display: none
+  
+  &:hover
+    background: rgba(255, 255, 255, 0.1)
+    color: darkText
+
+.mobileMenu
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 0
+  background: darkBg
+  z-index: 999
+  overflow: hidden
+  transition: height 0.3s ease
+  display: flex
+  flex-direction: column
+  
+  &.open
+    height: 100vh
+    padding-top: 4.5rem
+    
+    @media (min-width: mobile)
+      padding-top: 5rem
+
+.mobileLinks
+  display: flex
+  flex-direction: column
+  padding: 1.5rem 8%
+  
+  @media (min-width: mobile)
+    padding: 2rem 8%
+
+.mobileLink
+  font-size: 1.1rem
+  color: darkTextMuted
+  text-decoration: none
+  padding: 0.875rem 0
+  border-bottom: 1px solid darkBorder
+  transition: all 0.3s ease
+  
+  @media (min-width: mobile)
+    font-size: 1.25rem
+    padding: 1rem 0
+  
+  &:hover, &.active
+    color: accentColor
+
+.mobileAuthButtons
+  display: flex
+  flex-direction: column
+  gap: 0.875rem
+  margin-top: 1.5rem
+  padding: 0 8%
+  
+  @media (min-width: mobile)
+    gap: 1rem
+    margin-top: 2rem
+
+.mobileAuthButton
+  width: 100%
+  padding: 0.875rem
+  text-align: center
+  border-radius: 0.5rem
+  font-weight: 600
+  font-size: 0.95rem
+  text-decoration: none
+  transition: all 0.3s ease
+  background: darkSurface
+  color: darkTextMuted
+  
+  @media (min-width: mobile)
+    padding: 1rem
+    font-size: 1rem
+  
+  &:hover
+    background: rgba(255, 255, 255, 0.1)
+    color: darkText
+  
+  &.register
+    background: accentColor
+    color: white
+    
+    &:hover
+      background: accentHover

@@ -1,0 +1,152 @@
+// src/pages/About.module.styl
+.aboutContainer
+  width: 100%
+  max-width: 1000px
+  margin: 0 auto
+  padding: 2rem 1rem
+
+.heroSection
+  text-align: center
+  margin-bottom: 3rem
+  position: relative
+
+.pageTitle
+  font-size: 2.5rem
+  font-weight: 700
+  margin-bottom: 1rem
+  color: #1e293b
+
+.subtitle
+  font-size: 1.25rem
+  color: #64748b
+  max-width: 600px
+  margin: 0 auto
+  margin-bottom: 2rem
+
+.heroImage
+  width: 100%
+  border-radius: 0.5rem
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+
+.contentSection
+  margin-bottom: 3rem
+
+.aboutContent
+  background-color: white
+  border-radius: 0.5rem
+  padding: 2rem
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
+
+.sectionTitle
+  font-size: 1.75rem
+  font-weight: 600
+  color: #1e293b
+  margin-bottom: 1.5rem
+  position: relative
+  padding-bottom: 0.5rem
+  
+  &:after
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 50px
+    height: 3px
+    background-color: #3b82f6
+
+.description
+  font-size: 1rem
+  line-height: 1.7
+  color: #475569
+  margin-bottom: 2rem
+
+.featureList
+  margin-bottom: 2rem
+  padding-left: 1.5rem
+  
+  li
+    margin-bottom: 0.75rem
+    color: #475569
+    line-height: 1.6
+    position: relative
+
+.teamSection
+  display: flex
+  flex-wrap: wrap
+  gap: 2rem
+  margin-bottom: 2rem
+  justify-content: center
+
+.teamMember
+  text-align: center
+  flex: 1
+  min-width: 200px
+  max-width: 250px
+
+.teamAvatar
+  width: 150px
+  height: 150px
+  border-radius: 50%
+  margin-bottom: 1rem
+  object-fit: cover
+  border: 3px solid #3b82f6
+
+.teamName
+  font-size: 1.25rem
+  font-weight: 600
+  color: #1e293b
+  margin-bottom: 0.5rem
+
+.teamRole
+  font-size: 1rem
+  color: #64748b
+
+.contactSection
+  background-color: white
+  border-radius: 0.5rem
+  padding: 2rem
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
+
+.contactInfo
+  display: flex
+  flex-wrap: wrap
+  gap: 2rem
+  margin-bottom: 2rem
+  justify-content: center
+
+.contactItem
+  display: flex
+  align-items: center
+  gap: 0.75rem
+  
+  p
+    margin: 0
+    color: #475569
+
+.icon
+  font-size: 1.5rem
+
+.mapContainer
+  width: 100%
+  border-radius: 0.5rem
+  overflow: hidden
+
+.mapImage
+  width: 100%
+  display: block
+
+@media (max-width: 768px)
+  .pageTitle
+    font-size: 2rem
+    
+  .subtitle
+    font-size: 1.1rem
+    
+  .sectionTitle
+    font-size: 1.5rem
+    
+  .teamSection
+    gap: 1.5rem
+    
+  .teamMember
+    min-width: 150px

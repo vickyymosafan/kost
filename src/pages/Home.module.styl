@@ -1,0 +1,545 @@
+// src/pages/Home.module.styl
+
+// Hero Section
+.heroSection
+  position: relative
+  height: 100vh
+  max-height: 800px
+  overflow: hidden
+  
+.heroSlider
+  display: flex
+  width: 100%
+  height: 100%
+  transition: transform 0.5s ease-in-out
+
+.heroSlide
+  flex: 0 0 100%
+  height: 100%
+  background-size: cover
+  background-position: center
+  position: relative
+  
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7))
+
+.heroContent
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  text-align: center
+  color: white
+  width: 90%
+  max-width: 800px
+  z-index: 2
+  padding: 0 1rem
+
+.heroTitle
+  font-size: 3rem
+  font-weight: 800
+  margin-bottom: 1rem
+  animation: fadeInUp 0.8s ease-out
+  
+  @media (max-width: 768px)
+    font-size: 2.25rem
+  
+  @media (max-width: 480px)
+    font-size: 1.75rem
+
+.heroDescription
+  font-size: 1.25rem
+  margin-bottom: 2rem
+  animation: fadeInUp 0.8s ease-out 0.2s
+  animation-fill-mode: both
+  
+  @media (max-width: 768px)
+    font-size: 1.125rem
+  
+  @media (max-width: 480px)
+    font-size: 1rem
+
+.slideIndicators
+  position: absolute
+  bottom: 2rem
+  left: 50%
+  transform: translateX(-50%)
+  display: flex
+  gap: 0.75rem
+  z-index: 10
+
+.indicator
+  width: 3rem
+  height: 0.25rem
+  background: rgba(255, 255, 255, 0.3)
+  border: none
+  border-radius: 0.125rem
+  cursor: pointer
+  transition: all 0.3s ease
+  
+  &.active
+    background: white
+    width: 4rem
+
+// Search Box
+.searchBoxContainer
+  position: absolute
+  bottom: 6rem
+  left: 50%
+  transform: translateX(-50%)
+  width: 90%
+  max-width: 800px
+  z-index: 10
+  
+  @media (max-width: 768px)
+    bottom: 5rem
+
+.searchBox
+  display: flex
+  background: white
+  border-radius: 0.5rem
+  overflow: hidden
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2)
+  
+  @media (max-width: 480px)
+    flex-direction: column
+
+.searchInput
+  flex: 1
+  padding: 1.25rem 1.5rem
+  border: none
+  font-size: 1rem
+  color: var(--neutral-800)
+  
+  &:focus
+    outline: none
+
+.searchButton
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 0.5rem
+  background: var(--primary)
+  color: white
+  border: none
+  padding: 0 2rem
+  font-weight: 600
+  cursor: pointer
+  transition: background 0.3s ease
+  
+  &:hover
+    background: var(--primary-dark)
+  
+  @media (max-width: 480px)
+    padding: 1rem
+    justify-content: center
+
+// Section Styles
+.container
+  width: 90%
+  max-width: 1200px
+  margin: 0 auto
+
+.sectionHeader
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 2rem
+
+.sectionTitle
+  font-size: 1.75rem
+  font-weight: 700
+  position: relative
+  
+  &:after
+    content: ''
+    position: absolute
+    bottom: -0.5rem
+    left: 0
+    width: 3rem
+    height: 3px
+    background: var(--primary)
+
+.viewAllLink
+  display: flex
+  align-items: center
+  gap: 0.5rem
+  color: var(--primary)
+  font-weight: 600
+  transition: all 0.3s ease
+  
+  &:hover
+    color: var(--primary-dark)
+    transform: translateX(3px)
+
+// Locations Section
+.locationsSection
+  padding: 5rem 0
+
+.cityGrid
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  gap: 1.5rem
+  
+  @media (max-width: 992px)
+    grid-template-columns: repeat(2, 1fr)
+  
+  @media (max-width: 480px)
+    grid-template-columns: 1fr
+
+.cityCard
+  position: relative
+  height: 200px
+  border-radius: 0.75rem
+  overflow: hidden
+  box-shadow: var(--card-shadow)
+  transition: all 0.3s ease
+  
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15)
+    
+    .cityImage
+      transform: scale(1.05)
+
+.cityImage
+  width: 100%
+  height: 100%
+  object-fit: cover
+  transition: transform 0.5s ease
+
+.cityOverlay
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+  padding: 1.5rem
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0))
+  color: white
+
+.cityName
+  font-size: 1.25rem
+  font-weight: 600
+  margin-bottom: 0.5rem
+
+.cityKostCount
+  display: flex
+  align-items: center
+  gap: 0.5rem
+  font-size: 0.875rem
+  color: var(--neutral-200)
+
+// Targeted Kost Section
+.targetedSection
+  padding: 5rem 0
+  background: var(--neutral-100)
+
+.targetedGrid
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
+  gap: 2rem
+  
+  @media (max-width: 992px)
+    grid-template-columns: repeat(2, 1fr)
+  
+  @media (max-width: 768px)
+    grid-template-columns: 1fr
+
+.targetedKostCard
+  background: white
+  border-radius: 0.75rem
+  overflow: hidden
+  box-shadow: var(--card-shadow)
+  transition: all 0.3s ease
+  height: 100%
+  display: flex
+  flex-direction: column
+  
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15)
+
+.cardImageContainer
+  height: 200px
+  overflow: hidden
+
+.cardImage
+  width: 100%
+  height: 100%
+  object-fit: cover
+  transition: transform 0.5s ease
+  
+  .targetedKostCard:hover &
+    transform: scale(1.05)
+
+.cardContent
+  padding: 1.5rem
+  flex: 1
+  display: flex
+  flex-direction: column
+
+.cardIcon
+  width: 3rem
+  height: 3rem
+  background: var(--primary)
+  color: white
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 50%
+  margin-bottom: 1rem
+  font-size: 1.25rem
+
+.cardTitle
+  font-size: 1.25rem
+  font-weight: 600
+  margin-bottom: 0.75rem
+
+.cardDescription
+  color: var(--neutral-400)
+  margin-bottom: 1.5rem
+  flex: 1
+
+.cardSearch
+  display: flex
+  background: var(--neutral-100)
+  border-radius: 0.5rem
+  overflow: hidden
+
+.cardSearchInput
+  flex: 1
+  padding: 0.75rem 1rem
+  border: none
+  background: transparent
+  
+  &:focus
+    outline: none
+
+.cardSearchButton
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 3rem
+  background: var(--primary)
+  color: white
+  border: none
+  transition: background 0.3s ease
+  
+  &:hover
+    background: var(--primary-dark)
+
+// CTA Section
+.ctaSection
+  position: relative
+  padding: 6rem 0
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary))
+  color: white
+  overflow: hidden
+  margin: 4rem 0
+  border-radius: 1rem
+
+.ctaBackground
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: radial-gradient(circle at 10% 20%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 80%)
+  z-index: 1
+
+.ctaPattern
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")
+  z-index: 1
+
+.ctaContent
+  position: relative
+  z-index: 2
+  max-width: 800px
+  margin: 0 auto
+  text-align: center
+
+.ctaBadge
+  display: inline-block
+  background: rgba(255,255,255,0.2)
+  color: white
+  font-size: 0.875rem
+  font-weight: 600
+  padding: 0.5rem 1rem
+  border-radius: 2rem
+  margin-bottom: 1.5rem
+  backdrop-filter: blur(4px)
+  animation: pulse 2s infinite
+
+.ctaTitle
+  font-size: 3rem
+  font-weight: 800
+  margin-bottom: 1.5rem
+  line-height: 1.2
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2)
+  animation: fadeInUp 0.8s ease-out
+  
+  @media (max-width: 768px)
+    font-size: 2.25rem
+  
+  @media (max-width: 480px)
+    font-size: 1.75rem
+
+.ctaDescription
+  font-size: 1.25rem
+  max-width: 700px
+  margin: 0 auto 2.5rem
+  line-height: 1.6
+  opacity: 0.9
+  animation: fadeInUp 0.8s ease-out 0.2s
+  animation-fill-mode: both
+  
+  @media (max-width: 768px)
+    font-size: 1.125rem
+  
+  @media (max-width: 480px)
+    font-size: 1rem
+
+.ctaHighlight
+  display: inline-block
+  font-weight: 700
+  color: #FFD700
+  margin-left: 0.5rem
+
+.ctaActions
+  display: flex
+  justify-content: center
+  gap: 1rem
+  margin-bottom: 3rem
+  animation: fadeInUp 0.8s ease-out 0.4s
+  animation-fill-mode: both
+  
+  @media (max-width: 480px)
+    flex-direction: column
+    align-items: center
+
+.ctaPrimaryButton
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 0.75rem
+  background: white
+  color: var(--primary-dark)
+  font-weight: 700
+  font-size: 1.125rem
+  padding: 1rem 2rem
+  border-radius: 0.5rem
+  transition: all 0.3s ease
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15)
+  
+  &:hover
+    transform: translateY(-3px)
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2)
+    
+    svg
+      transform: translateX(3px)
+  
+  svg
+    transition: transform 0.3s ease
+
+.ctaSecondaryButton
+  display: flex
+  align-items: center
+  justify-content: center
+  background: rgba(255,255,255,0.15)
+  color: white
+  font-weight: 600
+  font-size: 1.125rem
+  padding: 1rem 2rem
+  border-radius: 0.5rem
+  backdrop-filter: blur(4px)
+  transition: all 0.3s ease
+  
+  &:hover
+    background: rgba(255,255,255,0.25)
+    transform: translateY(-3px)
+
+.ctaStats
+  display: flex
+  justify-content: center
+  gap: 3rem
+  animation: fadeInUp 0.8s ease-out 0.6s
+  animation-fill-mode: both
+  
+  @media (max-width: 768px)
+    gap: 2rem
+  
+  @media (max-width: 480px)
+    flex-direction: column
+    gap: 1.5rem
+
+.ctaStat
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.ctaStatNumber
+  font-size: 2.5rem
+  font-weight: 800
+  line-height: 1
+  margin-bottom: 0.5rem
+  background: linear-gradient(to right, #ffffff, #FFD700)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  
+  @media (max-width: 768px)
+    font-size: 2rem
+
+.ctaStatLabel
+  font-size: 0.875rem
+  opacity: 0.8
+
+@keyframes pulse
+  0%
+    transform: scale(1)
+  50%
+    transform: scale(1.05)
+  100%
+    transform: scale(1)
+
+@keyframes fadeInUp
+  from
+    opacity: 0
+    transform: translateY(30px)
+  to
+    opacity: 1
+    transform: translateY(0)
+
+// Floating Action Button
+.fab
+  position: fixed
+  bottom: 2rem
+  right: 2rem
+  width: 3.5rem
+  height: 3.5rem
+  background: var(--primary)
+  color: white
+  border: none
+  border-radius: 50%
+  display: flex
+  align-items: center
+  justify-content: center
+  font-size: 1.25rem
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2)
+  z-index: 100
+  transition: all 0.3s ease
+  
+  &:hover
+    background: var(--primary-dark)
+    transform: translateY(-3px)
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3)

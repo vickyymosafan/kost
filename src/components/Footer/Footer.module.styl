@@ -1,0 +1,220 @@
+// src/components/Footer/Footer.module.styl
+
+:root
+  --footer-bg: #111827
+  --footer-text: #f9fafb
+  --footer-muted: #9ca3af
+  --footer-accent: #3b82f6
+  --footer-link-hover: #60a5fa
+  --footer-divider: rgba(255, 255, 255, 0.1)
+
+.footer
+  background: var(--footer-bg)
+  color: var(--footer-text)
+  padding: 5rem 0 2rem
+  position: relative
+  overflow: hidden
+
+.footerWave
+  position: absolute
+  top: -10px
+  left: 0
+  width: 100%
+  line-height: 0
+  transform: rotate(180deg)
+
+.container
+  width: 90%
+  max-width: 1200px
+  margin: 0 auto
+  position: relative
+  z-index: 2
+
+.footerTop
+  display: grid
+  grid-template-columns: 2fr 1fr 1fr 1.5fr
+  gap: 3rem
+  margin-bottom: 4rem
+  
+  @media (max-width: 992px)
+    grid-template-columns: 1fr 1fr
+    gap: 2.5rem
+  
+  @media (max-width: 576px)
+    grid-template-columns: 1fr
+    gap: 2rem
+
+.footerColumn
+  display: flex
+  flex-direction: column
+
+.brandContainer
+  margin-bottom: 1rem
+
+.footerBrand
+  font-size: 2rem
+  font-weight: 800
+  margin: 0
+  background: linear-gradient(90deg, var(--footer-accent), #8b5cf6)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+  text-fill-color: transparent
+  letter-spacing: -0.5px
+
+.brandTag
+  font-size: 0.875rem
+  color: var(--footer-muted)
+  font-style: italic
+
+.footerTitle
+  font-size: 1.25rem
+  font-weight: 700
+  margin-bottom: 1.75rem
+  position: relative
+  
+  &:after
+    content: ''
+    position: absolute
+    bottom: -0.75rem
+    left: 0
+    width: 3rem
+    height: 3px
+    background: linear-gradient(90deg, var(--footer-accent), #8b5cf6)
+    border-radius: 2px
+
+.footerDescription
+  color: var(--footer-muted)
+  margin-bottom: 1.75rem
+  line-height: 1.7
+  font-size: 0.95rem
+
+.socialLinks
+  display: flex
+  gap: 1rem
+
+.socialLink
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 2.75rem
+  height: 2.75rem
+  background: rgba(255, 255, 255, 0.05)
+  color: var(--footer-text)
+  border-radius: 50%
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+  
+  &:hover
+    background: var(--footer-accent)
+    transform: translateY(-5px)
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3)
+
+.footerLinks
+  list-style: none
+  padding: 0
+  margin: 0
+  
+  li
+    margin-bottom: 1rem
+    display: flex
+    align-items: center
+    
+    a
+      color: var(--footer-muted)
+      text-decoration: none
+      transition: all 0.3s ease
+      font-size: 0.95rem
+      
+      &:hover
+        color: var(--footer-link-hover)
+        transform: translateX(3px)
+
+.linkIcon
+  color: var(--footer-accent)
+  font-size: 0.75rem
+  margin-right: 0.5rem
+  transition: transform 0.3s ease
+
+  li:hover &
+    transform: translateX(3px)
+
+.contactInfo
+  list-style: none
+  padding: 0
+  margin: 0
+  
+  li
+    display: flex
+    align-items: flex-start
+    gap: 1rem
+    margin-bottom: 1.25rem
+    
+    a, span
+      color: var(--footer-muted)
+      font-size: 0.95rem
+      text-decoration: none
+      transition: color 0.3s ease
+      line-height: 1.5
+    
+    a:hover
+      color: var(--footer-link-hover)
+
+.contactIconWrapper
+  display: flex
+  align-items: center
+  justify-content: center
+  min-width: 2.5rem
+  height: 2.5rem
+  background: rgba(59, 130, 246, 0.1)
+  border-radius: 50%
+  
+  svg
+    color: var(--footer-accent)
+    font-size: 1rem
+
+.footerBottom
+  border-top: 1px solid var(--footer-divider)
+  padding-top: 2rem
+  display: flex
+  justify-content: space-between
+  align-items: center
+  
+  @media (max-width: 768px)
+    flex-direction: column
+    gap: 1.5rem
+    text-align: center
+
+.footerBottomLinks
+  display: flex
+  gap: 2rem
+  
+  a
+    color: var(--footer-muted)
+    text-decoration: none
+    font-size: 0.875rem
+    transition: color 0.3s ease
+    position: relative
+    
+    &:after
+      content: ''
+      position: absolute
+      bottom: -5px
+      left: 0
+      width: 0
+      height: 2px
+      background: var(--footer-accent)
+      transition: width 0.3s ease
+    
+    &:hover
+      color: var(--footer-text)
+      
+      &:after
+        width: 100%
+  
+  @media (max-width: 576px)
+    flex-direction: column
+    gap: 1rem
+
+.copyright
+  color: var(--footer-muted)
+  font-size: 0.875rem

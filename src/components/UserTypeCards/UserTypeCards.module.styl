@@ -1,0 +1,104 @@
+// src/components/UserTypeCards/UserTypeCards.module.styl
+.userTypeSection
+  padding: 4rem 2rem
+  background: white
+  width: 100%
+
+.sectionTitle
+  text-align: center
+  font-size: 1.75rem
+  font-weight: bold
+  margin-bottom: 2.5rem
+  color: #1e293b
+  position: relative
+  
+  &:after
+    content: ''
+    position: absolute
+    bottom: -0.75rem
+    left: 50%
+    transform: translateX(-50%)
+    width: 100px
+    height: 3px
+    background: linear-gradient(to right, #4CAF50, #2196F3)
+
+.cardContainer
+  display: flex
+  justify-content: center
+  gap: 2.5rem
+  flex-wrap: wrap
+  max-width: 900px
+  margin: 0 auto
+
+.userTypeCard
+  width: 300px
+  padding: 2rem
+  border-radius: 8px
+  background: white
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08)
+  text-align: center
+  border-top: 4px solid
+  transition: transform 0.3s, box-shadow 0.3s
+
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1)
+
+.iconContainer
+  width: 60px
+  height: 60px
+  border-radius: 50%
+  display: flex
+  align-items: center
+  justify-content: center
+  margin: 0 auto 1.5rem
+
+.icon
+  font-size: 1.75rem
+
+.typeTitle
+  font-size: 1.25rem
+  font-weight: 600
+  margin-bottom: 0.75rem
+  color: #1e293b
+
+.typeDescription
+  color: #64748b
+  margin-bottom: 1.5rem
+  line-height: 1.5
+  font-size: 0.9rem
+
+.exploreButton
+  padding: 0.6rem 1.5rem
+  background: transparent
+  border: 1px solid
+  border-radius: 4px
+  font-weight: 500
+  cursor: pointer
+  transition: all 0.2s
+  font-size: 0.875rem
+  
+  &:hover
+    background: rgba(0, 0, 0, 0.05)
+
+// Media Queries
+@media (max-width: 768px)
+  .userTypeSection
+    padding: 3rem 1.5rem
+    
+  .cardContainer
+    gap: 1.5rem
+    
+  .userTypeCard
+    width: 100%
+    max-width: 300px
+
+@media (max-width: 480px)
+  .userTypeSection
+    padding: 2rem 1rem
+    
+  .sectionTitle
+    font-size: 1.5rem
+    
+    &:after
+      width: 80px
