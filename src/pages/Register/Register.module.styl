@@ -1,0 +1,412 @@
+// src/pages/Register/Register.module.styl
+
+// Colors
+darkBg = #121212
+darkBgLight = #1e1e1e
+darkText = #ffffff
+darkTextMuted = rgba(255, 255, 255, 0.7)
+accentColor = #6366f1 // Indigo
+accentHover = #4f46e5
+darkSurface = #242424
+darkBorder = rgba(255, 255, 255, 0.1)
+inputBg = rgba(255, 255, 255, 0.05)
+errorColor = #ef4444
+googleColor = #ea4335
+facebookColor = #1877f2
+
+// Breakpoints
+smallMobile = 375px
+mobile = 480px
+tablet = 768px
+laptop = 1024px
+desktop = 1280px
+
+.registerPage
+  min-height: 100vh
+  display: flex
+  align-items: center
+  justify-content: center
+  background-color: darkBg
+  padding: 1rem
+
+.registerContainer
+  width: 100%
+  max-width: 1200px
+  display: flex
+  flex-direction: column
+  background: darkBgLight
+  border-radius: 1rem
+  overflow: hidden
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2)
+  
+  @media (min-width: tablet)
+    flex-direction: row
+    min-height: 650px
+
+.formWrapper
+  width: 100%
+  padding: 2rem 1.5rem
+  display: flex
+  flex-direction: column
+  order: 2
+  
+  @media (min-width: mobile)
+    padding: 2.5rem 2rem
+  
+  @media (min-width: tablet)
+    width: 50%
+    padding: 3rem
+    order: 1
+  
+  @media (min-width: laptop)
+    padding: 3.5rem 3rem
+
+.formHeader
+  margin-bottom: 2rem
+  text-align: center
+  
+  h1
+    color: darkText
+    font-size: 1.75rem
+    font-weight: 700
+    margin-bottom: 0.75rem
+    
+    @media (min-width: mobile)
+      font-size: 2rem
+    
+    @media (min-width: laptop)
+      font-size: 2.25rem
+  
+  p
+    color: darkTextMuted
+    font-size: 1rem
+    
+    @media (min-width: laptop)
+      font-size: 1.125rem
+
+.form
+  display: flex
+  flex-direction: column
+  gap: 1.25rem
+  
+  @media (min-width: tablet)
+    gap: 1.5rem
+
+.formGroup
+  display: flex
+  flex-direction: column
+  gap: 0.5rem
+
+.label
+  color: darkTextMuted
+  font-size: 0.875rem
+  font-weight: 500
+  
+  @media (min-width: mobile)
+    font-size: 0.9375rem
+
+.inputWrapper
+  position: relative
+  display: flex
+  align-items: center
+  background: inputBg
+  border: 1px solid darkBorder
+  border-radius: 0.5rem
+  transition: all 0.3s ease
+  
+  &:focus-within
+    border-color: accentColor
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2)
+  
+  &.error
+    border-color: errorColor
+    
+    &:focus-within
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2)
+
+.inputIcon
+  color: darkTextMuted
+  font-size: 1rem
+  margin-left: 1rem
+
+.input
+  width: 100%
+  background: transparent
+  border: none
+  padding: 0.75rem 1rem
+  color: darkText
+  font-size: 0.9375rem
+  outline: none
+  
+  @media (min-width: mobile)
+    padding: 0.875rem 1rem
+    font-size: 1rem
+  
+  &::placeholder
+    color: rgba(255, 255, 255, 0.4)
+
+.passwordToggle
+  background: transparent
+  border: none
+  color: darkTextMuted
+  cursor: pointer
+  padding: 0 1rem
+  font-size: 1rem
+  display: flex
+  align-items: center
+  transition: color 0.3s ease
+  
+  &:hover
+    color: darkText
+
+.errorMessage
+  color: errorColor
+  font-size: 0.75rem
+  margin-top: 0.25rem
+  
+  @media (min-width: mobile)
+    font-size: 0.8125rem
+
+.checkboxWrapper
+  display: flex
+  flex-direction: column
+  margin-top: 0.25rem
+
+.checkboxLabel
+  display: flex
+  align-items: flex-start
+  position: relative
+  padding-left: 1.75rem
+  cursor: pointer
+  font-size: 0.875rem
+  color: darkTextMuted
+  user-select: none
+  
+  @media (min-width: mobile)
+    font-size: 0.9375rem
+  
+  span
+    line-height: 1.4
+
+.checkbox
+  position: absolute
+  opacity: 0
+  cursor: pointer
+  height: 0
+  width: 0
+
+.checkmark
+  position: absolute
+  top: 0
+  left: 0
+  height: 1.25rem
+  width: 1.25rem
+  background-color: inputBg
+  border: 1px solid darkBorder
+  border-radius: 0.25rem
+  transition: all 0.2s ease
+  
+  &:after
+    content: ""
+    position: absolute
+    display: none
+    left: 0.4rem
+    top: 0.2rem
+    width: 0.25rem
+    height: 0.5rem
+    border: solid white
+    border-width: 0 2px 2px 0
+    transform: rotate(45deg)
+
+.checkbox:checked ~ .checkmark
+  background-color: accentColor
+  border-color: accentColor
+
+.checkbox:checked ~ .checkmark:after
+  display: block
+
+.checkbox:focus ~ .checkmark
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4)
+
+.termsLink
+  color: accentColor
+  text-decoration: none
+  font-weight: 500
+  transition: color 0.3s ease
+  
+  &:hover
+    color: accentHover
+    text-decoration: underline
+
+.submitButton
+  background: accentColor
+  color: white
+  border: none
+  border-radius: 0.5rem
+  padding: 0.875rem
+  font-size: 1rem
+  font-weight: 600
+  cursor: pointer
+  transition: all 0.3s ease
+  margin-top: 0.5rem
+  
+  @media (min-width: mobile)
+    padding: 1rem
+    font-size: 1.0625rem
+  
+  &:hover:not(:disabled)
+    background: accentHover
+    transform: translateY(-2px)
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3)
+  
+  &:active:not(:disabled)
+    transform: translateY(0)
+    box-shadow: none
+  
+  &:disabled
+    opacity: 0.7
+    cursor: not-allowed
+
+.divider
+  display: flex
+  align-items: center
+  text-align: center
+  margin: 1.5rem 0
+  
+  &:before, &:after
+    content: ""
+    flex: 1
+    border-bottom: 1px solid darkBorder
+  
+  span
+    padding: 0 10px
+    color: darkTextMuted
+    font-size: 0.875rem
+
+.socialLogin
+  display: flex
+  gap: 1rem
+  margin-bottom: 1.5rem
+  
+  @media (max-width: mobile)
+    flex-direction: column
+    gap: 0.75rem
+
+.socialButton
+  flex: 1
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 0.5rem
+  background: darkSurface
+  border: 1px solid darkBorder
+  color: darkText
+  padding: 0.75rem
+  border-radius: 0.5rem
+  font-size: 0.9375rem
+  font-weight: 500
+  cursor: pointer
+  transition: all 0.3s ease
+  
+  @media (min-width: mobile)
+    padding: 0.875rem
+  
+  &:hover
+    transform: translateY(-2px)
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15)
+  
+  &:active
+    transform: translateY(0)
+    box-shadow: none
+  
+  &.google
+    &:hover
+      border-color: googleColor
+      background: rgba(234, 67, 53, 0.1)
+  
+  &.facebook
+    &:hover
+      border-color: facebookColor
+      background: rgba(24, 119, 242, 0.1)
+
+.socialIcon
+  font-size: 1.25rem
+
+.loginPrompt
+  text-align: center
+  color: darkTextMuted
+  font-size: 0.9375rem
+  margin-top: auto
+  padding-top: 1.5rem
+
+.loginLink
+  color: accentColor
+  font-weight: 600
+  text-decoration: none
+  transition: color 0.3s ease
+  
+  &:hover
+    color: accentHover
+    text-decoration: underline
+
+.imageWrapper
+  display: block
+  position: relative
+  height: 200px
+  order: 1
+  
+  @media (min-width: mobile)
+    height: 250px
+  
+  @media (min-width: tablet)
+    order: 2
+    height: auto
+    width: 50%
+    background: url('https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80') center/cover no-repeat
+  
+.overlay
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: linear-gradient(to left, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.4))
+  
+  @media (max-width: tablet - 1px)
+    background: linear-gradient(to bottom, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.4))
+
+.content
+  position: absolute
+  bottom: 10%
+  right: 10%
+  max-width: 80%
+  text-align: right
+  
+  @media (max-width: tablet - 1px)
+    bottom: 50%
+    right: 50%
+    transform: translate(50%, 50%)
+    text-align: center
+    width: 80%
+  
+  h2
+    color: white
+    font-size: 1.75rem
+    font-weight: 700
+    margin-bottom: 0.75rem
+    
+    @media (min-width: tablet)
+      font-size: 2rem
+    
+    @media (min-width: laptop)
+      font-size: 2.5rem
+  
+  p
+    color: rgba(255, 255, 255, 0.9)
+    font-size: 0.9375rem
+    
+    @media (min-width: tablet)
+      font-size: 1rem
+    
+    @media (min-width: laptop)
+      font-size: 1.125rem
