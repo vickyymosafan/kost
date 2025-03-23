@@ -1,12 +1,13 @@
 // src/pages/Register/Register.jsx
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaGoogle, FaFacebook } from 'react-icons/fa'
+import { FaUser, FaEnvelope, FaLock, FaEye, FaEyeSlash, FaGoogle, FaFacebook, FaPhone } from 'react-icons/fa'
 import styles from './Register.module.styl'
 
 function Register() {
   const [formData, setFormData] = useState({
     fullName: '',
+    phoneNumber: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -30,6 +31,12 @@ function Register() {
     
     if (!formData.fullName.trim()) {
       errors.fullName = 'Nama lengkap tidak boleh kosong'
+    }
+    
+    if (!formData.phoneNumber.trim()) {
+      errors.phoneNumber = 'Nomor telepon tidak boleh kosong'
+    } else if (!/^[0-9]{10,13}$/.test(formData.phoneNumber.replace(/\D/g, ''))) {
+      errors.phoneNumber = 'Nomor telepon tidak valid (10-13 digit)'
     }
     
     if (!formData.email) {
@@ -114,6 +121,23 @@ function Register() {
                 />
               </div>
               {formErrors.fullName && <div className={styles.errorMessage}>{formErrors.fullName}</div>}
+            </div>
+            
+            <div className={styles.formGroup}>
+              <label htmlFor="phoneNumber" className={styles.label}>Nomor Telepon</label>
+              <div className={`${styles.inputWrapper} ${formErrors.phoneNumber ? styles.error : ''}`}>
+                <FaPhone className={styles.inputIcon} />
+                <input
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  className={styles.input}
+                  placeholder="Contoh: 08123456789"
+                />
+              </div>
+              {formErrors.phoneNumber && <div className={styles.errorMessage}>{formErrors.phoneNumber}</div>}
             </div>
             
             <div className={styles.formGroup}>
